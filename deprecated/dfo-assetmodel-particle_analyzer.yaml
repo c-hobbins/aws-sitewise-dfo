@@ -1,0 +1,232 @@
+Parameters:
+  BaseAssetModelName:
+    Type: String
+    Default: Dfo Particle Analyzer Asset Model
+  BaseAssetModelDesc:
+    Type: String
+    Default: Representation of a particle analyzer device that collects telemtry data from various attached sensors.
+  BaseAssetModelPrefix:
+    Type: String
+    Default: dfo-sw-particle-analyzer
+  InDeviceActiveThreshold:
+    Type: String
+    Default: 1.3
+  InDevicePluggedInThreshold:
+    Type: String
+    Default: 0.01
+  InDeviceId:
+    Type: String
+    Default: particleAnalyzer001
+  InAssetSerialNum:
+    Type: String
+    Default: pa-333-xxx
+Resources:
+  DfoParticleAnalyzerAssetModel:
+    Type: 'AWS::IoTSiteWise::AssetModel'
+    Properties: 
+      AssetModelName: !Ref BaseAssetModelName
+      AssetModelDescription: !Ref BaseAssetModelDesc
+      AssetModelProperties: 
+        - Name: deviceId
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'attr', 'device-id']]
+          DataType: STRING
+          Type:
+              TypeName: Attribute
+        - Name: assetSerialnum
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'attr', 'serialnum']]
+          DataType: STRING
+          Type:
+              TypeName: Attribute
+        - Name: assetModel
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'attr', 'model']]
+          DataType: STRING
+          Type:
+              TypeName: Attribute
+        - Name: assetManufacturer
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'attr', 'manufacturer']]
+          DataType: STRING
+          Type:
+              TypeName: Attribute
+        - Name: activeThreshold
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'attr', 'active', 'threshold']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Attribute
+              Attribute:
+                DefaultValue: !Sub "${InDeviceActiveThreshold}"
+        - Name: pluggedInThreshold
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Attribute
+              Attribute:
+                DefaultValue: !Sub "${InDevicePluggedInThreshold}"
+        - Name: apower
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'apower']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Measurement
+          Unit: Watts
+        - Name: voltage
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'voltage']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Measurement
+          Unit: Volts
+        - Name: current
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'current']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Measurement
+          Unit: Amps
+        - Name: usageStartDateTime
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'start']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Measurement
+          Unit: ms
+        - Name: usageEndDateTime
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'end']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Measurement
+          Unit: ms
+        - Name: longitude
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'longitude']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Measurement
+          Unit: degree
+        - Name: latitude
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'latitude']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Measurement
+          Unit: degree
+        - Name: isPluggedIn
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'trans', 'isPluggedIn']]
+          DataType: DOUBLE
+          Type:
+              TypeName: Transform
+              Transform:
+                Expression: gte(var_current,var_plugged_in)
+                Variables:
+                  - Name: var_current
+                    Value:
+                      PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'current']]
+                  - Name: var_plugged_in
+                    Value:
+                      PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+        - Name: deviceState
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'trans', 'deviceState']]
+          DataType: STRING
+          Type:
+            TypeName: Transform
+            Transform:
+              Expression: if(gte(var_current,var_plugged_in) and lte(var_current,var_active),'IDLE').elif(gt(var_current,var_active),'IN USE','UNPLUGGED')
+              Variables:
+                - Name: var_current
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'current']]  
+                - Name: var_active
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'attr', 'active', 'threshold']]
+                - Name: var_plugged_in
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+        - Name: usageEvent
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'trans', 'usageEvent']]
+          DataType: DOUBLE
+          Type:
+            TypeName: Transform
+            Transform:
+              Expression: if(isnan(var_end) or isnan(var_start),0).elif(lte(var_end,0) or lte(var_start,0),0,1)
+              Variables:
+                - Name: var_end
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'end']]
+                - Name: var_start
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'start']]
+        - Name: usageDuration
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'trans', 'usageDuration']]
+          DataType: DOUBLE
+          Type:
+            TypeName: Transform
+            Transform:
+              Expression: if(isnan(var_end) or isnan(var_start),0).elif(eq(var_end,0) or eq(var_start,0),0).elif(lte(var_end-var_start,0),0,var_end-var_start)
+              Variables:
+                - Name: var_end
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'end']]
+                - Name: var_start
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'msrmt', 'start']]
+        - Name: usageEventCountPer15Min
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'metric', 'usageEventCountPer15Min']]
+          DataType: DOUBLE
+          Type:
+            TypeName: Metric
+            Metric:
+              Expression: sum(var_usage_event)
+              Variables:
+                - Name: var_usage_event
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'trans', 'usageEvent']]
+              Window:
+                Tumbling:
+                  Interval: PT15M
+        - Name: usageEventCountDaily
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'metric', 'usageEventCountDaily']]
+          DataType: DOUBLE
+          Type:
+            TypeName: Metric
+            Metric:
+              Expression: sum(var_usage_event)
+              Variables:
+                - Name: var_usage_event
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'trans', 'usageEvent']]
+              Window:
+                Tumbling:
+                  Interval: 1d
+        - Name: usageEventDurationAvgPer15Min
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'metric', 'usageEventDurationAvgPer15Min']]
+          DataType: DOUBLE
+          Type:
+            TypeName: Metric
+            Metric:
+              Expression: if( gte(var_usage_duration,0), avg(var_usage_duration/1000), 0)
+              Variables:
+                - Name: var_usage_duration
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'trans', 'usageDuration']]
+              Window:
+                Tumbling:
+                  Interval: PT15M
+        - Name: usageEventDurationAvgDaily
+          LogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'metric', 'usageEventDurationAvgDaily']]
+          DataType: DOUBLE
+          Type:
+            TypeName: Metric
+            Metric:
+              Expression: if( gte(var_usage_duration,0), avg(var_usage_duration/1000), 0)
+              Variables:
+                - Name: var_usage_duration
+                  Value:
+                    PropertyLogicalId: !Join ['-', [!Ref BaseAssetModelPrefix, 'trans', 'usageDuration']]
+              Window:
+                Tumbling:
+                  Interval: 1d
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+Outputs:
+  DfoParticleAnalyzerAssetModelId:
+    Description: Id of the created asset model to be used in asset creation
+    Value: !Ref DfoParticleAnalyzerAssetModel
+    Export: 
+      Name:
+        'Fn::Sub': '${AWS::StackName}-DfoParticleAnalyzerAssetModelId'

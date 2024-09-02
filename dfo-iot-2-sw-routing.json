@@ -1,0 +1,29 @@
+{
+    "sql": "select * from 'dfo/+/+/+/usage'",
+    "description": "Send all usage sensor readings from assets to SiteWise. Topic destination: dfo/{labname}/{assetname}/{devicetype}/usage",
+    "actions": [
+      {
+        "iotSiteWise": {
+          "putAssetPropertyValueEntries": [
+            {
+                "propertyAlias": "/dfo/asset/${topic(3)}/current",
+                "propertyValues": [
+                  {
+                    "value": {
+                      "doubleValue": "${Current}"
+                    },
+                    "timestamp": {
+                      "timeInSeconds": "${floor(timestamp() / 1E3)}",
+                      "offsetInNanos": "${(timestamp() % 1E3) * 1E6}"
+                    }
+                  }
+                ]
+            }
+          ],
+          "roleArn": "arn:aws:iam::453500802547:role/SscIotCore2SitewiseRole"
+        }
+    }
+    ],
+    "ruleDisabled": false,
+    "awsIotSqlVersion": "2016-03-23"
+  }

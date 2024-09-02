@@ -1,0 +1,94 @@
+{
+  "entries": [
+    {
+      "entryId": "dfo-particleanalyzer101-active-threshold",
+      "assetId": "61a0846c-765e-46ec-a4d0-0873a439a81c",
+      "propertyId": "41a1adbf-cc7a-4a09-a826-15217187d665",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 1.3
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-particleanalyzer101-pluggedin-threshold",
+      "assetId": "61a0846c-765e-46ec-a4d0-0873a439a81c",
+      "propertyId": "b9ef33ae-da2a-4596-8e8e-877e1dffdc56",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.01
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-particleanalyzer101-device-category",
+      "assetId": "61a0846c-765e-46ec-a4d0-0873a439a81c",
+      "propertyId": "8b078f13-ec04-446b-a5f6-e5364cf7c1b0",
+      "propertyValues": [
+        {
+          "value": {
+            "stringValue": "particleanalyzer"
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-particleanalyzer102-active-threshold",
+      "assetId": "0d25a585-c75b-4430-953c-650eb6a33599",
+      "propertyId": "41a1adbf-cc7a-4a09-a826-15217187d665",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 1.3
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-particleanalyzer102-pluggedin-threshold",
+      "assetId": "0d25a585-c75b-4430-953c-650eb6a33599",
+      "propertyId": "b9ef33ae-da2a-4596-8e8e-877e1dffdc56",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.01
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-particleanalyzer102-device-category",
+      "assetId": "0d25a585-c75b-4430-953c-650eb6a33599",
+      "propertyId": "8b078f13-ec04-446b-a5f6-e5364cf7c1b0",
+      "propertyValues": [
+        {
+          "value": {
+            "stringValue": "particleanalyzer"
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "entries": [
+    {
+      "entryId": "dfo-flowcam101-active-threshold",
+      "assetId": "82dfd83b-8416-46ed-8ccf-dbed5fb045f7",
+      "propertyId": "41a1adbf-cc7a-4a09-a826-15217187d665",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.5
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-flowcam101-pluggedin-threshold",
+      "assetId": "82dfd83b-8416-46ed-8ccf-dbed5fb045f7",
+      "propertyId": "b9ef33ae-da2a-4596-8e8e-877e1dffdc56",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.01
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-flowcam101-device-category",
+      "assetId": "82dfd83b-8416-46ed-8ccf-dbed5fb045f7",
+      "propertyId": "8b078f13-ec04-446b-a5f6-e5364cf7c1b0",
+      "propertyValues": [
+        {
+          "value": {
+            "stringValue": "flowcam"
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-flowcam102-active-threshold",
+      "assetId": "6ce1fdb4-2d61-4d63-b896-0552d4b553e4",
+      "propertyId": "41a1adbf-cc7a-4a09-a826-15217187d665",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.5
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-flowcam102-pluggedin-threshold",
+      "assetId": "6ce1fdb4-2d61-4d63-b896-0552d4b553e4",
+      "propertyId": "b9ef33ae-da2a-4596-8e8e-877e1dffdc56",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.01
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-flowcam102-device-category",
+      "assetId": "6ce1fdb4-2d61-4d63-b896-0552d4b553e4",
+      "propertyId": "8b078f13-ec04-446b-a5f6-e5364cf7c1b0",
+      "propertyValues": [
+        {
+          "value": {
+            "stringValue": "flowcam"
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    }
+  ]
+}

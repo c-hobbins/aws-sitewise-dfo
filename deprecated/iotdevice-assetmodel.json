@@ -1,0 +1,82 @@
+{
+    "assetModelName": "SSC IoT Device",
+    "assetModelDescription": "Representation of a device that collects data from various attached sensors",
+    "assetModelProperties": [
+        {
+            "name": "serialNum",
+            "dataType": "STRING",
+            "type": {
+                "attribute": {
+                    "defaultValue": "DPI-SENSOR-KIT-001"
+                }
+            }
+        },
+        {
+            "name": "devicePlatform",
+            "dataType": "STRING",
+            "type": {
+                "attribute": {
+                    "defaultValue": "Pi3"
+                }
+            }
+        },
+        {
+            "name": "Temperature",
+            "dataType": "DOUBLE",
+            "type": {
+                "measurement": {}
+            },
+            "unit": "celsius"
+        },
+        {
+            "name": "Humidity",
+            "dataType": "DOUBLE",
+            "type": {
+                "measurement": {}
+            }
+        },
+        {
+            "name": "Co2",
+            "dataType": "DOUBLE",
+            "type": {
+                "measurement": {}
+            },
+            "unit": "ppm"
+        },
+        {
+            "name": "Sound",
+            "dataType": "DOUBLE",
+            "type": {
+                "measurement": {}
+            },
+            "unit": "db"
+        },
+        {
+            "name": "Gas",
+            "dataType": "DOUBLE",
+            "type": {
+                "measurement": {}
+            },
+            "unit": "ppm"
+        },
+        {
+            "name": "Dust",
+            "dataType": "DOUBLE",
+            "type": {
+                "measurement": {}
+            },
+            "unit": "pm"
+        },
+        {
+            "name": "Tvoc",
+            "dataType": "DOUBLE",
+            "type": {
+                "measurement": {}
+            }
+        }
+    ],
+    "tags": {
+        "Owner": "chobbins",
+        "Project": "datacenter-iot-poc"
+    }
+}

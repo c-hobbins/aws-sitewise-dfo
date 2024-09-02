@@ -1,0 +1,380 @@
+Parameters:
+  GenericAssetModelPrefix:
+    Type: String
+    Default: dfo-sw-generic-device
+  AliasPrefix:
+    Type: String
+    Default: /dfo/asset
+Resources:
+  Microscope101:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: Microscope101
+      AssetDescription: Microscope asset
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-device-DfoGenericDeviceAssetModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'device', 'id']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'asset', 'category']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'model']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'manufacturer']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'serialnum']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'active', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'apower']]
+          Alias: !Sub "${AliasPrefix}/microscope101/apower"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'voltage']]
+          Alias: !Sub "${AliasPrefix}/microscope101/voltage"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'current']]
+          Alias: !Sub "${AliasPrefix}/microscope101/current"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'latitude']]
+          Alias: !Sub "${AliasPrefix}/microscope101/latitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'longitude']]
+          Alias: !Sub "${AliasPrefix}/microscope101/longitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'start']]
+          Alias: !Sub "${AliasPrefix}/microscope101/start"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'end']]
+          Alias: !Sub "${AliasPrefix}/microscope101/end"
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  Microscope102:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: Microscope102
+      AssetDescription: Microscope asset
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-device-DfoGenericDeviceAssetModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'device-id']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'asset', 'category']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'model']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'manufacturer']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'serialnum']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'active', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'apower']]
+          Alias: !Sub "${AliasPrefix}/microscope102/apower"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'voltage']]
+          Alias: !Sub "${AliasPrefix}/microscope102/voltage"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'current']]
+          Alias: !Sub "${AliasPrefix}/microscope102/current"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'latitude']]
+          Alias: !Sub "${AliasPrefix}/microscope102/latitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'longitude']]
+          Alias: !Sub "${AliasPrefix}/microscope102/longitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'start']]
+          Alias: !Sub "${AliasPrefix}/microscope102/start"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'end']]
+          Alias: !Sub "${AliasPrefix}/microscope102/end"
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  Microscope103:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: Microscope103
+      AssetDescription: Microscope asset
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-device-DfoGenericDeviceAssetModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'device-id']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'asset', 'category']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'model']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'manufacturer']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'serialnum']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'active', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'apower']]
+          Alias: !Sub "${AliasPrefix}/microscope103/apower"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'voltage']]
+          Alias: !Sub "${AliasPrefix}/microscope103/voltage"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'current']]
+          Alias: !Sub "${AliasPrefix}/microscope103/current"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'latitude']]
+          Alias: !Sub "${AliasPrefix}/microscope103/latitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'longitude']]
+          Alias: !Sub "${AliasPrefix}/microscope103/longitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'start']]
+          Alias: !Sub "${AliasPrefix}/microscope103/start"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'end']]
+          Alias: !Sub "${AliasPrefix}/microscope103/end"
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  Flowcam101:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: Flowcam101
+      AssetDescription: Flowcam asset
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-device-DfoGenericDeviceAssetModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'device-id']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'asset', 'category']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'model']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'manufacturer']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'serialnum']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'active', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'apower']]
+          Alias: !Sub "${AliasPrefix}/flowcam101/apower"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'voltage']]
+          Alias: !Sub "${AliasPrefix}/flowcam101/voltage"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'current']]
+          Alias: !Sub "${AliasPrefix}/flowcam101/current"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'latitude']]
+          Alias: !Sub "${AliasPrefix}/flowcam101/latitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'longitude']]
+          Alias: !Sub "${AliasPrefix}/flowcam101/longitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'start']]
+          Alias: !Sub "${AliasPrefix}/flowcam101/start"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'end']]
+          Alias: !Sub "${AliasPrefix}/flowcam101/end"
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  Flowcam102:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: Flowcam102
+      AssetDescription: Flowcam asset
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-device-DfoGenericDeviceAssetModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'device-id']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'asset', 'category']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'model']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'manufacturer']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'serialnum']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'active', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'apower']]
+          Alias: !Sub "${AliasPrefix}/flowcam102/apower"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'voltage']]
+          Alias: !Sub "${AliasPrefix}/flowcam102/voltage"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'current']]
+          Alias: !Sub "${AliasPrefix}/flowcam102/current"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'latitude']]
+          Alias: !Sub "${AliasPrefix}/flowcam102/latitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'longitude']]
+          Alias: !Sub "${AliasPrefix}/flowcam102/longitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'start']]
+          Alias: !Sub "${AliasPrefix}/flowcam102/start"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'end']]
+          Alias: !Sub "${AliasPrefix}/flowcam102/end"
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  ParticleAnalyzer101:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: ParticleAnalyzer101
+      AssetDescription: Particle Analyzer asset
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-device-DfoGenericDeviceAssetModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'device-id']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'asset', 'category']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'model']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'manufacturer']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'serialnum']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'active', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'apower']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer101/apower"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'voltage']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer101/voltage"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'current']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer101/current"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'latitude']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer101/latitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'longitude']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer101/longitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'start']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer101/start"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'end']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer101/end"
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  ParticleAnalyzer102:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: ParticleAnalyzer102
+      AssetDescription: Particle Analyzer asset
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-device-DfoGenericDeviceAssetModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'device-id']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'asset', 'category']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'model']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'manufacturer']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'serialnum']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'active', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'attr', 'pluggedin', 'threshold']]
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'apower']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer102/apower"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'voltage']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer102/voltage"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'current']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer102/current"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'latitude']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer102/latitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'longitude']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer102/longitude"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'start']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer102/start"
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'msrmt', 'end']]
+          Alias: !Sub "${AliasPrefix}/particleAnalyzer102/end"
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  BillsLab:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: Bills Lab
+      AssetDescription: Assets belonging to Bill's Lab
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-hierachy-LabResourceModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', ['dfo-sw', 'lab', 'name']]
+      AssetHierarchies:
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'asset']]
+          ChildAssetId: !Ref Microscope101
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'asset']]
+          ChildAssetId: !Ref Microscope102
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'asset']]
+          ChildAssetId: !Ref ParticleAnalyzer102
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'asset']]
+          ChildAssetId: !Ref Flowcam101
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  NBLab:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: NB Lab
+      AssetDescription: Assets belonging to the NB Lab
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-hierachy-LabResourceModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', ['dfo-sw', 'lab', 'name']]
+      AssetHierarchies:
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'asset']]
+          ChildAssetId: !Ref Microscope103
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'asset']]
+          ChildAssetId: !Ref Flowcam102
+        - LogicalId: !Join ['-', [!Ref GenericAssetModelPrefix, 'asset']]
+          ChildAssetId: !Ref ParticleAnalyzer101
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  NcrRegion:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: NCR Region
+      AssetDescription: Assets belonging to the NCR Region
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-hierachy-RegionResourceModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', ['dfo-sw', 'region', 'name']]
+      AssetHierarchies:
+        - LogicalId: dfo-sw-lab
+          ChildAssetId: !Ref LisgarLab
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  MaritimeRegion:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: Maritime Region
+      AssetDescription: Assets belonging to the Maritime Region
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-hierachy-RegionResourceModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', ['dfo-sw', 'region', 'name']]
+      AssetHierarchies:
+        - LogicalId: dfo-sw-lab
+          ChildAssetId: !Ref NBLab
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  PacificRegion:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: Pacific Region
+      AssetDescription: Assets belonging to the Pacific Region
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-hierachy-RegionResourceModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', ['dfo-sw', 'region', 'name']]
+      AssetHierarchies:
+        - LogicalId: dfo-sw-lab
+          ChildAssetId: !Ref NBLab
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  OntPrairieRegion:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: OntarioPrairie Region
+      AssetDescription: Assets belonging to the Ontario and Prairie Region
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-hierachy-RegionResourceModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', ['dfo-sw', 'region', 'name']]
+      AssetHierarchies:
+        - LogicalId: dfo-sw-lab
+          ChildAssetId: !Ref NBLab
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  QuebecRegion:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: Quebec Region
+      AssetDescription: Assets belonging to the Quebec Region
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-hierachy-RegionResourceModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', ['dfo-sw', 'region', 'name']]
+      AssetHierarchies:
+        - LogicalId: dfo-sw-lab
+          ChildAssetId: !Ref NBLab
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  Dfo:
+    Type: AWS::IoTSiteWise::Asset
+    Properties:
+      AssetName: DFO
+      AssetExternalId: dfo-root
+      AssetDescription: Assets belonging to the DFO organization
+      AssetModelId: !ImportValue 'dfo-sw-assetmodel-generic-hierachy-RootResourceModelId'
+      AssetProperties:
+        - LogicalId: !Join ['-', ['dfo-sw', 'RootOrg', 'name']]
+      AssetHierarchies:
+        - LogicalId: dfo-sw-region
+          ChildAssetId: !Ref NcrRegion
+        - LogicalId: dfo-sw-region
+          ChildAssetId: !Ref MaritimeRegion
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"

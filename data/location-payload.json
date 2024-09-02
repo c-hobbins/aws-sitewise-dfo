@@ -1,0 +1,84 @@
+{
+    "deduplicationId": "862904f1-e725-4707-9267-07ac8c0741d6",
+    "time": "2024-01-31T16:54:52.568600222+00:00",
+    "deviceInfo": {        "tenantId": "52f14cd4-c6f1-4fbd-8f87-4025e1d49242",
+        "tenantName": "SenseCAP",
+        "applicationId": "b0508adb-7286-49ae-862c-8cd351e2deec",
+"applicationName": "DFO",
+"deviceProfileId": "506f1967-0aa9-4cb6-b854-554c5a6ece62",
+"deviceProfileName": "Card",
+"deviceName": "Card",
+"devEui": "2cf7f1c0538001eb",
+"tags": {}
+},
+"devAddr": "5a28a085",
+"adr": true,
+"dr": 3,
+"fCnt": 5775,
+"fPort": 5,
+"confirmed": true,
+"data": "CQAAAABluntZ+3+Q0AK1pIxM",
+"object": {
+"messages": [
+[
+{
+"motionId": 0,
+"measurementId": "4200",
+"type": "Event Status",
+"measurementValue": [],
+"timestamp": 1712346561000
+},
+{
+"motionId": 0,
+"measurementValue": -75.525936,
+"type": "Longitude",
+"timestamp": 1712346561000,
+"measurementId": "4197"
+},
+{
+"measurementValue": 45.458572,
+"measurementId": "4198",
+"timestamp": 1712346561000,
+"motionId": 0,
+"type": "Latitude"
+},
+{
+"type": "Battery",
+"timestamp": 1712346561000,
+"measurementValue": 76,
+"measurementId": "3000",
+"motionId": 0
+}
+]
+],
+"valid": true,
+"err": 0,
+"payload": "090000000065ba7b59fb7f90d002b5a48c4c"
+},
+"rxInfo": [
+{
+"gatewayId": "2cf7f111531000b3",
+"uplinkId": 2679438191,
+"rssi": -75,
+"snr": 15,
+"channel": 4,
+"rfChain": 1,
+"context": "maeKMg==",
+"metadata": {
+"region_config_id": "US_902_928_FSB_2",
+"region_common_name": "US915"
+},
+"crcStatus": "CRC_OK"
+}
+],
+"txInfo": {
+"frequency": 904700000,
+"modulation": {
+"lora": {
+"bandwidth": 125000,
+"spreadingFactor": 7,
+"codeRate": "CR_4_5"
+}
+}
+}
+}

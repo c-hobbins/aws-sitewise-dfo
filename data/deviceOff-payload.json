@@ -1,0 +1,26 @@
+{
+    "eventTime": 1707862797753,
+    "payload": {
+      "actionExecutionId": "cd5600da-549d-3df0-938f-1f8aae2ed343",
+      "detector": {
+        "detectorModelName": "Dfo-DeviceStateModel",
+        "keyValue": "plug1",
+        "detectorModelVersion": "2"
+      },
+      "eventTriggerDetails": {
+        "inputName": "dfo_device_power_usage_inputs",
+        "messageId": "4c3634db-8997-4192-b10b-da9799bd0c79",
+        "triggerType": "Message"
+      },
+      "state": {
+        "stateName": "In-Use",
+        "variables": {
+          "deviceOn": 1,
+          "stopTime": 1707499099,
+          "startTime": 1707899099
+        },
+        "timers": {}
+      }
+    },
+    "eventName": "Device_TurnedOff"
+  }

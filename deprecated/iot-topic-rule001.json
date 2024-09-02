@@ -1,0 +1,113 @@
+{
+    "sql": "select * from 'chad/test/SSC-DEVICE-001'",
+    "description": "Send all readings from simulated device: SSC-DEVICE-001 to SiteWise",
+    "actions": [
+      {
+        "iotSiteWise": {
+          "putAssetPropertyValueEntries": [
+            {
+              "propertyAlias": "/ottawa/fitzgerald/c07/sensor/001/temp",
+              "propertyValues": [
+                {
+                  "value": {
+                    "doubleValue": "${temp}"
+                  },
+                  "timestamp": {
+                    "timeInSeconds": "${floor(timestamp() / 1E3)}",
+                    "offsetInNanos": "${(timestamp() % 1E3) * 1E6}"
+                  }
+                }
+              ]
+            },
+            {
+                "propertyAlias": "/ottawa/fitzgerald/c07/sensor/001/humidity",
+                "propertyValues": [
+                  {
+                    "value": {
+                      "doubleValue": "${humidity}"
+                    },
+                    "timestamp": {
+                      "timeInSeconds": "${floor(timestamp() / 1E3)}",
+                      "offsetInNanos": "${(timestamp() % 1E3) * 1E6}"
+                    }
+                  }
+                ]
+            },
+            {
+                "propertyAlias": "/ottawa/fitzgerald/c07/sensor/001/gas",
+                "propertyValues": [
+                  {
+                    "value": {
+                      "doubleValue": "${gas}"
+                    },
+                    "timestamp": {
+                      "timeInSeconds": "${floor(timestamp() / 1E3)}",
+                      "offsetInNanos": "${(timestamp() % 1E3) * 1E6}"
+                    }
+                  }
+                ]
+            },
+            {
+                "propertyAlias": "/ottawa/fitzgerald/c07/sensor/001/sound",
+                "propertyValues": [
+                  {
+                    "value": {
+                      "doubleValue": "${sound}"
+                    },
+                    "timestamp": {
+                      "timeInSeconds": "${floor(timestamp() / 1E3)}",
+                      "offsetInNanos": "${(timestamp() % 1E3) * 1E6}"
+                    }
+                  }
+                ]
+            },
+            {
+                "propertyAlias": "/ottawa/fitzgerald/c07/sensor/001/co2",
+                "propertyValues": [
+                  {
+                    "value": {
+                      "doubleValue": "${co2}"
+                    },
+                    "timestamp": {
+                      "timeInSeconds": "${floor(timestamp() / 1E3)}",
+                      "offsetInNanos": "${(timestamp() % 1E3) * 1E6}"
+                    }
+                  }
+                ]
+            },
+            {
+                "propertyAlias": "/ottawa/fitzgerald/c07/sensor/001/dust",
+                "propertyValues": [
+                  {
+                    "value": {
+                      "doubleValue": "${dust}"
+                    },
+                    "timestamp": {
+                      "timeInSeconds": "${floor(timestamp() / 1E3)}",
+                      "offsetInNanos": "${(timestamp() % 1E3) * 1E6}"
+                    }
+                  }
+                ]
+            },
+            {
+                "propertyAlias": "/ottawa/fitzgerald/c07/sensor/001/tvoc",
+                "propertyValues": [
+                  {
+                    "value": {
+                      "doubleValue": "${tvoc}"
+                    },
+                    "timestamp": {
+                      "timeInSeconds": "${floor(timestamp() / 1E3)}",
+                      "offsetInNanos": "${(timestamp() % 1E3) * 1E6}"
+                    }
+                  }
+                ]
+            }
+          ],
+          "roleArn": "arn:aws:iam::509227327475:role/service-role/ssc_de_dpi_iot_core_to_sitewise"
+        }
+    }
+    ],
+    "ruleDisabled": false,
+    "awsIotSqlVersion": "2016-03-23"
+  }

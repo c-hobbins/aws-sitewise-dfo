@@ -1,0 +1,138 @@
+Parameters:
+  RegionResourceModelName:
+    Type: String
+    Default: Dfo Region
+  LabResourceModelName:
+    Type: String
+    Default: Dfo Lab
+  ResourceGroupModelName:
+    Type: String
+    Default: Dfo Resource Group
+  MicroscopeAssetModelPrefix:
+    Type: String
+    Default: dfo-sw-microscope
+  FlowcamAssetModelPrefix:
+    Type: String
+    Default: dfo-sw-flowcam
+  ParticleAnalyzerAssetModelPrefix:
+    Type: String
+    Default: dfo-sw-particle-analyzer
+Resources:
+  RootResourceModel:
+    Type: 'AWS::IoTSiteWise::AssetModel'
+    Properties: 
+      AssetModelName: Dfo Org
+      AssetModelDescription: Aggregation of all organizational DFO devices belonging to all regions and labs
+      AssetModelProperties: 
+        - Name: Name
+          LogicalId: !Join ['-', ['dfo-sw', 'RootOrg','name']]
+          DataType: STRING
+          Type:
+              TypeName: Attribute
+              Attribute:
+                DefaultValue: DFO
+      AssetModelHierarchies:
+        - Name: !Ref RegionResourceModelName
+          LogicalId: !Join ['-', ['dfo-sw', 'region']]
+          ChildAssetModelId: !Ref RegionResourceModel
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  RegionResourceModel:
+    Type: 'AWS::IoTSiteWise::AssetModel'
+    Properties: 
+      AssetModelName: !Sub "${RegionResourceModelName}"
+      AssetModelDescription: Aggregation of all devices in specific region.
+      AssetModelProperties: 
+        - Name: Name
+          LogicalId: !Join ['-', ['dfo-sw', 'region', 'name']]
+          DataType: STRING
+          Type:
+              TypeName: Attribute
+      AssetModelHierarchies:
+        - Name: !Ref LabResourceModelName
+          LogicalId: !Join ['-', ['dfo-sw', 'lab']]
+          ChildAssetModelId: !Ref LabResourceModel
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  LabResourceModel:
+    Type: 'AWS::IoTSiteWise::AssetModel'
+    Properties: 
+      AssetModelName: !Sub "${LabResourceModelName}"
+      AssetModelDescription: Aggregation of all devices in a specific lab/room.
+      AssetModelProperties: 
+        - Name: Name
+          LogicalId: !Join ['-', ['dfo-sw', 'lab', 'name']]
+          DataType: STRING
+          Type:
+              TypeName: Attribute
+      AssetModelHierarchies:
+        - Name: !Ref ResourceGroupModelName
+          LogicalId: !Join ['-', ['dfo-sw', 'resource-group']]
+          ChildAssetModelId: !Ref ResourceGroupModel
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+  ResourceGroupModel:
+    Type: 'AWS::IoTSiteWise::AssetModel'
+    Properties: 
+      AssetModelName: !Sub "${ResourceGroupModelName}"
+      AssetModelDescription: Aggregation of all devices of a specific category of assets.
+      AssetModelProperties: 
+        - Name: Name
+          LogicalId: !Join ['-', ['dfo-sw', 'resourceGroup', 'name']]
+          DataType: STRING
+          Type:
+              TypeName: Attribute
+      AssetModelHierarchies:
+        - Name: Microscope Assets
+          LogicalId: !Join ['-', [!Ref MicroscopeAssetModelPrefix, 'asset']]
+          ChildAssetModelId: !ImportValue 'dfo-sw-assetmodel-microscope-DfoMicroscopeAssetModelId'
+        - Name: Flowcam Assets
+          LogicalId: !Join ['-', [!Ref FlowcamAssetModelPrefix, 'asset']]
+          ChildAssetModelId: !ImportValue 'dfo-sw-assetmodel-flowcam-DfoFlowcamAssetModelId'
+        - Name: Particle Analyzer Assets
+          LogicalId: !Join ['-', [!Ref ParticleAnalyzerAssetModelPrefix, 'asset']]
+          ChildAssetModelId: !ImportValue 'dfo-sw-assetmodel-particle-analyzer-DfoParticleAnalyzerAssetModelId'
+      Tags:
+        - Key: "Owner"
+          Value: "chobbins"
+        - Key: "Project"
+          Value: "DFO"
+Outputs:
+  RootResourceModelId:
+    Description: Id of the root org asset model
+    Value: !Ref RootResourceModel
+    Export: 
+      Name:
+        'Fn::Sub': '${AWS::StackName}-RootResourceModelId'
+  RegionResourceModelId:
+    Description: Id of the region resource asset model
+    Value: !Ref RegionResourceModel
+    Export: 
+      Name:
+        'Fn::Sub': '${AWS::StackName}-RegionResourceModelId'
+  LabResourceModelId:
+    Description: Id of the lab resource asset model
+    Value: !Ref LabResourceModel
+    Export: 
+      Name:
+        'Fn::Sub': '${AWS::StackName}-LabResourceModelId'
+  ResourceGroupModelId:
+    Description: Id of the resource group asset model
+    Value: !Ref ResourceGroupModel
+    Export: 
+      Name:
+        'Fn::Sub': '${AWS::StackName}-ResourceGroupModelId'
+  ChildAssetModelStackName:
+    Description: Name of the stack for using in child stacks
+    Value: !Sub "${AWS::StackName}"
+    Export:
+      Name: ChildAssetModelStackName

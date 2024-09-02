@@ -1,0 +1,139 @@
+{
+  "entries": [
+    {
+      "entryId": "dfo-microscope101-active-threshold",
+      "assetId": "12547793-8cc3-4ebf-814c-9512866850cf",
+      "propertyId": "41a1adbf-cc7a-4a09-a826-15217187d665",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.9
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-microscope101-pluggedin-threshold",
+      "assetId": "12547793-8cc3-4ebf-814c-9512866850cf",
+      "propertyId": "b9ef33ae-da2a-4596-8e8e-877e1dffdc56",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.01
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-microscope101-device-category",
+      "assetId": "12547793-8cc3-4ebf-814c-9512866850cf",
+      "propertyId": "8b078f13-ec04-446b-a5f6-e5364cf7c1b0",
+      "propertyValues": [
+        {
+          "value": {
+            "stringValue": "microscope"
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-microscope102-active-threshold",
+      "assetId": "fe886db6-2fdd-4b73-a98f-5bdc9520c7f6",
+      "propertyId": "41a1adbf-cc7a-4a09-a826-15217187d665",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.9
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-microscope102-pluggedin-threshold",
+      "assetId": "fe886db6-2fdd-4b73-a98f-5bdc9520c7f6",
+      "propertyId": "b9ef33ae-da2a-4596-8e8e-877e1dffdc56",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.01
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-microscope102-device-category",
+      "assetId": "fe886db6-2fdd-4b73-a98f-5bdc9520c7f6",
+      "propertyId": "8b078f13-ec04-446b-a5f6-e5364cf7c1b0",
+      "propertyValues": [
+        {
+          "value": {
+            "stringValue": "microscope"
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-microscope103-active-threshold",
+      "assetId": "f72a92ab-6acf-4c7c-8670-0a984ff82e94",
+      "propertyId": "41a1adbf-cc7a-4a09-a826-15217187d665",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.9
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-microscope103-pluggedin-threshold",
+      "assetId": "f72a92ab-6acf-4c7c-8670-0a984ff82e94",
+      "propertyId": "b9ef33ae-da2a-4596-8e8e-877e1dffdc56",
+      "propertyValues": [
+        {
+          "value": {
+            "doubleValue": 0.01
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    },
+    {
+      "entryId": "dfo-microscope103-device-category",
+      "assetId": "f72a92ab-6acf-4c7c-8670-0a984ff82e94",
+      "propertyId": "8b078f13-ec04-446b-a5f6-e5364cf7c1b0",
+      "propertyValues": [
+        {
+          "value": {
+            "stringValue": "microscope"
+          },
+          "timestamp": {
+            "timeInSeconds": 1712953421
+          }
+        }
+      ]
+    }
+  ]
+}
